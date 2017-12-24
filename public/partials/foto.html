@@ -30,6 +30,15 @@
             <textarea name="descricao" class="form-control" ng-model="foto.descricao" required>
             </textarea>
         </div>
+        <div class="form-group">
+            <label>Grupo</label>
+            <select name="grupo" ng-model="foto.grupo" ng-controller="GruposController" class="form-control" ng-options="grupe._id as grupo.nome for grupo in grupos" required>
+                <option value="">Escolha um grupo</option>
+            </select>
+            <span ng-show="formulario.$submitted && formulario.grupo.$error.required" class="form-control alert-danger">
+                Grupo obrigatório
+            </span>
+        </div>
 
         <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
             Salvar
